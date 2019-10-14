@@ -12,7 +12,7 @@ export default function StatisticCard ({ title, children, action }) {
             {children}
           </div>
         </div>
-        <div className='db center w-auto pv4 pb0-ns ph4 tc pointer'>
+        <div className='db center w-auto pv4 pb0-ns ph4 tc'>
           {action}
         </div>
       </div>

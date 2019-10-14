@@ -1,11 +1,11 @@
 import { Component } from 'react'
-import Link from 'next/link'
 import Nav from '../components/nav'
 import Head from '../components/head'
 import Team from '../components/team'
 import ProcessCard from '../components/ProcessCard'
 import StatisticCard from '../components/StatisticCard'
 import InvolvementCard from '../components/InvolvementCard'
+import Button from '../components/Button'
 import { formatCurrency } from '../utils/formatting'
 
 import * as Api from '../api/api'
@@ -226,9 +226,9 @@ class IndexPage extends Component {
               <InvolvementCard
                 title='Fund Teachers'
                 action={
-                  <Link href='/donate'>
-                    <a className='white no-underline pa3 db br-pill tf-lato b v-mid bg-tf-yellow w-80 m-auto'>Donate</a>
-                  </Link>
+                  <Button nexLink big href='/donate'>
+                    Donate
+                  </Button>
                 }
               >
                 Because private donors cover our operating costs, you can give knowing your whole gift
@@ -237,10 +237,10 @@ class IndexPage extends Component {
               <InvolvementCard
                 title='Volunteer'
                 action={
-                  <a className='white no-underline pa3 db br-pill tf-lato b v-mid bg-tf-pink w-80 m-auto'
+                  <Button color={'pink'} big
                     href='mailto:joelwass@theteacherfund.com?subject=Application'>
                        Apply Today
-                  </a>
+                  </Button>
                 }
               >
                 Interested in helping us? We’re looking for a web designer, non-profit
@@ -273,9 +273,7 @@ class IndexPage extends Component {
                 <div className='mb3 red tf-lato' aria-live='assertive'>
                   {this.state.error}
                 </div>
-                <button className='white no-underline pa2 db br-pill tf-lato b v-mid bg-tf-yellow w-40 m-auto'>
-                    Subscribe
-                </button>
+                <Button>Subscribe</Button>
               </form>}
             </div>
             <div className='pt4 center white m-auto tf-lato-lite'>
