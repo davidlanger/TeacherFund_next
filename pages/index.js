@@ -5,6 +5,7 @@ import Head from '../components/head'
 import Team from '../components/team'
 import ProcessCard from '../components/ProcessCard'
 import StatisticCard from '../components/StatisticCard'
+import InvolvementCard from '../components/InvolvementCard'
 import { formatCurrency } from '../utils/formatting'
 
 import * as Api from '../api/api'
@@ -222,44 +223,30 @@ class IndexPage extends Component {
               Get Involved
             </div>
             <div className='flex flex-row flex-wrap justify-center w-auto mt3-m center'>
-              <div className='pa2 pa4-ns w-40-m w-33-l w-80 bg-card h5-5-ns ma3'>
-                <div className='w-100 pa2'>
-                  <div className='pa2 tc'>
-                    <div className='tf-lato f3 pv2 tc'>
-                      Fund Teachers
-                    </div>
-                    <div className='tf-lato-lite f3-l f5-m pt2 tc h4-m'>
-                      Because private donors cover our operating costs, you can give knowing your whole gift
-                      will go toward helping equip teachers and students with the supplies they need to be successful.
-                    </div>
-                  </div>
-                  <div className='db center w-auto pv4 pb0-ns ph4 tc pointer'>
-                    <Link href='/donate'>
-                      <a className='white no-underline pa3 db br-pill tf-lato b v-mid bg-tf-yellow w-80 m-auto'>Donate</a>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              <div className='pa2 pa4-ns w-40-m w-33-l w-80 bg-card h5-5-ns ma3'>
-                <div className='w-100 pa2'>
-                  <div className='pa2 tc'>
-                    <div className='tf-lato f3 pv2 tc'>
-                      Volunteer
-                    </div>
-                    <div className='tf-lato-lite f3-l f5-m pt2 tc h4-m'>
-                      Interested in helping us? We’re looking for a web designer, non-profit
-                      lawyer, and boots-on-the-ground volunteers to help handout supplies
-                      and build teacher relationships.
-                    </div>
-                  </div>
-                  <div className='db center w-auto pv4 pb0-ns ph4 tc pointer'>
-                    <a className='white no-underline pa3 db br-pill tf-lato b v-mid bg-tf-pink w-80 m-auto'
-                      href='mailto:joelwass@theteacherfund.com?subject=Application'>
+              <InvolvementCard
+                title='Fund Teachers'
+                action={
+                  <Link href='/donate'>
+                    <a className='white no-underline pa3 db br-pill tf-lato b v-mid bg-tf-yellow w-80 m-auto'>Donate</a>
+                  </Link>
+                }
+              >
+                Because private donors cover our operating costs, you can give knowing your whole gift
+                will go toward helping equip teachers and students with the supplies they need to be successful.
+              </InvolvementCard>
+              <InvolvementCard
+                title='Volunteer'
+                action={
+                  <a className='white no-underline pa3 db br-pill tf-lato b v-mid bg-tf-pink w-80 m-auto'
+                    href='mailto:joelwass@theteacherfund.com?subject=Application'>
                        Apply Today
-                    </a>
-                  </div>
-                </div>
-              </div>
+                  </a>
+                }
+              >
+                Interested in helping us? We’re looking for a web designer, non-profit
+                lawyer, and boots-on-the-ground volunteers to help handout supplies
+                and build teacher relationships.
+              </InvolvementCard>
             </div>
           </div>
         </section>
