@@ -4,6 +4,7 @@ import Nav from '../components/nav'
 import Head from '../components/head'
 import Team from '../components/team'
 import ProcessCard from '../components/ProcessCard'
+import StatisticCard from '../components/StatisticCard'
 import { formatCurrency } from '../utils/formatting'
 
 import * as Api from '../api/api'
@@ -187,38 +188,30 @@ class IndexPage extends Component {
             </div>
             <div className='center pa2 pv0-ns flex flex-column'>
               <div className='index__metrics mb4-m'>
-                <div className='index__metric border-tf-yellow' aria-label='Amount of money raised for teachers'>
-                  <div className='tf-lato ts-title center'>
-                    ${formatCurrency(this.props.context.globalAmountDonated) || 0}
-                  </div>
-                  <div className='pt2 tf-lato-lite ts-subtext center'>
-                    Raised
-                  </div>
-                </div>
-                <div className='index__metric border-tf-pink' aria-label='Number of teachers funded by TeacherFund'>
-                  <div className='tf-lato ts-title center'>
-                    3
-                  </div>
-                  <div className='pt2 tf-lato-lite ts-subtext center'>
-                    Teachers Funded
-                  </div>
-                </div>
-                <div className='index__metric border-tf-dark-gray' aria-label='Number of schools partenered with TeacherFund'>
-                  <div className='tf-lato ts-title center'>
-                    2
-                  </div>
-                  <div className='pt2 tf-lato-lite ts-subtext center'>
-                    Partner Schools
-                  </div>
-                </div>
-                <div className='index__metric border-tf-gray' aria-label='Number of students impacted by TeacherFund'>
-                  <div className='tf-lato ts-title center'>
-                    450
-                  </div>
-                  <div className='pt2 tf-lato-lite ts-subtext center'>
-                    Students Impacted
-                  </div>
-                </div>
+                <StatisticCard
+                  value={'$' + formatCurrency(this.props.context.globalAmountDonated) || 0}
+                  label='Raised'
+                  hint='Amount of money raised for teachers'
+                  color='yellow'
+                />
+                <StatisticCard
+                  value='5'
+                  label='Teachers Funded'
+                  hint='Number of teachers funded by TeacherFund'
+                  color='pink'
+                />
+                <StatisticCard
+                  value='2'
+                  label='Partner Schools'
+                  hint='Number of schools partenered with TeacherFund'
+                  color='dak-grey'
+                />
+                <StatisticCard
+                  value='450'
+                  label='Students Impacted'
+                  hint='Number of students impacted by TeacherFund'
+                  color='gray'
+                />
               </div>
             </div>
           </div>
