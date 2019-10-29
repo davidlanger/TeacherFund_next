@@ -1,6 +1,6 @@
 import 'react'
 
-export default function StatisticCard ({ title, children, action }) {
+export default function InvolvementCard ({ title, children, action }) {
   return (
     <div className='pa2 pa4-ns w-40-m w-33-l w-80 bg-card h5-5-ns ma3'>
       <div className='w-100 pa2'>

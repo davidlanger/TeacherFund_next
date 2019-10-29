@@ -6,6 +6,7 @@ import ProcessCard from '../components/ProcessCard'
 import StatisticCard from '../components/StatisticCard'
 import InvolvementCard from '../components/InvolvementCard'
 import Button from '../components/Button'
+import PageSection from '../components/PageSection'
 import { formatCurrency } from '../utils/formatting'
 
 import * as Api from '../api/api'
@@ -152,104 +153,83 @@ class IndexPage extends Component {
             <div className='ma5-ns cover absolute di-ns dn index__provide--image' />
           </div>
         </section>
-        <section className='h-section'>
-          <div className='flex flex-column mt3 pt5-l'>
-            <div className='f1-l f2-m mb3-m tf-oswald center'>
-              Our Process
-            </div>
-            <div className='flex flex-row flex-wrap justify-center w-auto mt2 mt5-l center'>
-              <ProcessCard
-                title='Quality Teachers'
-                icon={<img src='/static/images/Mortarboard_icon.png' className='contain' title='Icon of graduation cap' />}
-              >
-                We fund dedicated teachers working diligently to improve their
-                classrooms and their students’ education.
-              </ProcessCard>
-              <ProcessCard
-                title='Local Schools'
-                icon={<img src='/static/images/School_icon.png' className='contain' title='Icon of school' />}
-              >
-                Partnering with nearby schools ensures we are providing exactly what
-                their teachers and students need.
-              </ProcessCard>
-              <ProcessCard
-                title='Tangible Impact'
-                icon={<img src='/static/images/Hand_icon.png' className='contain' title='Icon of hand holding money cap' />}
-              >
-                We monitor each dollar donated so you can see the direct
-                impact your donation has on these classrooms.
-              </ProcessCard>
-            </div>
+        <PageSection title='Our Process'>
+          <ProcessCard
+            title='Quality Teachers'
+            icon={<img src='/static/images/Mortarboard_icon.png' className='contain' title='Icon of graduation cap' />}
+          >
+            We fund dedicated teachers working diligently to improve their
+            classrooms and their students’ education.
+          </ProcessCard>
+          <ProcessCard
+            title='Local Schools'
+            icon={<img src='/static/images/School_icon.png' className='contain' title='Icon of school' />}
+          >
+            Partnering with nearby schools ensures we are providing exactly what
+            their teachers and students need.
+          </ProcessCard>
+          <ProcessCard
+            title='Tangible Impact'
+            icon={<img src='/static/images/Hand_icon.png' className='contain' title='Icon of hand holding money cap' />}
+          >
+            We monitor each dollar donated so you can see the direct
+            impact your donation has on these classrooms.
+          </ProcessCard>
+        </PageSection>
+        <PageSection title={'See How We\'re Doing'} color='white' bgColor='teal'>
+          <div className='index__metrics mb4-m'>
+            <StatisticCard
+              value={'$' + formatCurrency(this.props.context.globalAmountDonated) || 0}
+              label='Raised'
+              hint='Amount of money raised for teachers'
+              color='yellow'
+            />
+            <StatisticCard
+              value='5'
+              label='Teachers Funded'
+              hint='Number of teachers funded by TeacherFund'
+              color='pink'
+            />
+            <StatisticCard
+              value='2'
+              label='Partner Schools'
+              hint='Number of schools partenered with TeacherFund'
+              color='dak-grey'
+            />
+            <StatisticCard
+              value='450'
+              label='Students Impacted'
+              hint='Number of students impacted by TeacherFund'
+              color='gray'
+            />
           </div>
-        </section>
-        <section className='h-section bg-tf-teal pt5-l'>
-          <div className='flex flex-column pv3 pv0-l'>
-            <div className='f1-l f2-m tf-oswald white tc mb5-l mv4-m'>
-              See How We're Doing
-            </div>
-            <div className='center pa2 pv0-ns flex flex-column'>
-              <div className='index__metrics mb4-m'>
-                <StatisticCard
-                  value={'$' + formatCurrency(this.props.context.globalAmountDonated) || 0}
-                  label='Raised'
-                  hint='Amount of money raised for teachers'
-                  color='yellow'
-                />
-                <StatisticCard
-                  value='5'
-                  label='Teachers Funded'
-                  hint='Number of teachers funded by TeacherFund'
-                  color='pink'
-                />
-                <StatisticCard
-                  value='2'
-                  label='Partner Schools'
-                  hint='Number of schools partenered with TeacherFund'
-                  color='dak-grey'
-                />
-                <StatisticCard
-                  value='450'
-                  label='Students Impacted'
-                  hint='Number of students impacted by TeacherFund'
-                  color='gray'
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className='h-section'>
-          <div className='flex flex-column pt6-l'>
-            <div className='f1-l f2-m tf-oswald center mb3-m mb4-l'>
-              Get Involved
-            </div>
-            <div className='flex flex-row flex-wrap justify-center w-auto mt3-m center'>
-              <InvolvementCard
-                title='Fund Teachers'
-                action={
-                  <Button nexLink big href='/donate'>
-                    Donate
-                  </Button>
-                }
-              >
-                Because private donors cover our operating costs, you can give knowing your whole gift
-                will go toward helping equip teachers and students with the supplies they need to be successful.
-              </InvolvementCard>
-              <InvolvementCard
-                title='Volunteer'
-                action={
-                  <Button color={'pink'} big
-                    href='mailto:joelwass@theteacherfund.com?subject=Application'>
-                       Apply Today
-                  </Button>
-                }
-              >
-                Interested in helping us? We’re looking for a web designer, non-profit
-                lawyer, and boots-on-the-ground volunteers to help handout supplies
-                and build teacher relationships.
-              </InvolvementCard>
-            </div>
-          </div>
-        </section>
+        </PageSection>
+        <PageSection title='Get Involved'>
+          <InvolvementCard
+            title='Fund Teachers'
+            action={
+              <Button nexLink big href='/donate'>
+                Donate
+              </Button>
+            }
+          >
+            Because private donors cover our operating costs, you can give knowing your whole gift
+            will go toward helping equip teachers and students with the supplies they need to be successful.
+          </InvolvementCard>
+          <InvolvementCard
+            title='Volunteer'
+            action={
+              <Button color={'pink'} big
+                href='mailto:joelwass@theteacherfund.com?subject=Application'>
+                    Apply Today
+              </Button>
+            }
+          >
+            Interested in helping us? We’re looking for a web designer, non-profit
+            lawyer, and boots-on-the-ground volunteers to help handout supplies
+            and build teacher relationships.
+          </InvolvementCard>
+        </PageSection>
         <Team />
         <section className='h-footer bg-tf-dark-gray'>
           <div className='flex flex-column m-auto w-33-l w-50-m w-100 tc'>
